@@ -8,7 +8,8 @@
     "brfs": "^1.0.0",
     "watchify": "^0.6.3",
     "w3": "~0.4.5",
-    "expect.js": "~0.2.0"
+    "expect.js": "~0.2.0",
+    "sinon": "*"
   },
   "scripts": {
     "build": "browserify -t brfs app/app.js -o public/bundle.js",

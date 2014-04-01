@@ -1,13 +1,14 @@
 // # MyTodo Controller
 //
-module.exports = function($scope) {
+module.exports = function($scope, localStorageService) {
   'use strict';
 
   $scope.newTodo = '';
-  $scope.todoList = ['walk dog', 'go to work'];
+  $scope.todoList = [];
 
   $scope.addTodo = function(todo_item) {
-    this.todoList.push(todo_item);
+    $scope.todoList.push(todo_item);
+    localStorageService.set('myTodoList', $scope.todoList)
   };
 
   $scope.submit = function() {
@@ -15,6 +16,10 @@ module.exports = function($scope) {
       $scope.addTodo($scope.newTodo);
       $scope.newTodo = '';
     }
+  };
+
+  $scope.syncTodoList = function() {
+    $scope.todoList = localStorageService.get('myTodoList');
   };
 
 };

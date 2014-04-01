@@ -1,9 +1,15 @@
 var expect = require('expect.js');
+var sinon = require('sinon');
 var myTodo = require('../../app/controllers/my_todo');
 
 describe('myTodo', function() {
 
   beforeEach(function(){
+    var localStorageService = function($provide) {
+      $provide.factory('localStorageService', function(){
+
+      });
+    }
   });
 
   it('has a todoList', function() {
@@ -17,6 +23,14 @@ describe('myTodo', function() {
     myTodo(scope);
     scope.addTodo('coffee');
     expect(scope.todoList).to.contain('coffee');
+  });
+
+  it('puts the todoList into localStorage when adding a Todo', function(){
+    var scope = {};
+    var spy = sinon.spy();
+    myTodo(scope, spy);
+    scope.addTodo('tea');
+    expect(sinon.calledWith('myTodoList', ['tea']).to.be.ok())
   });
 
   it('adds an item to the todo on submit', function() {

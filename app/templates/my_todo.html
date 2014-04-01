@@ -1,4 +1,5 @@
 <div class="jumbotron">
+  <div ng-init="syncTodoList()">
   <form role="form" ng-submit="submit()">
     <label for='todo_task'>Enter a Todo Task</label>
     <input name="todo_task" ng_model="newTodo">
