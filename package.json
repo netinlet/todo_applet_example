@@ -7,7 +7,8 @@
     "browserify": "^3.38.0",
     "brfs": "^1.0.0",
     "watchify": "^0.6.3",
-    "w3": "~0.4.5"
+    "w3": "~0.4.5",
+    "expect.js": "~0.2.0"
   },
   "scripts": {
     "build": "browserify -t brfs app/app.js -o public/bundle.js",
@@ -16,6 +17,6 @@
     "angular": "cp node_modules/angular/angular.js public/js/angular.js",
     "fonts": "cp -R node_modules/bootstrap/dist/fonts public/.",
     "watch": "watchify -t brfs app/app.js -o public/bundle.js",
-    "test": "mocha test/**/*.js"
+    "test": "mocha -u bdd test/**/*.js"
   }
 }
