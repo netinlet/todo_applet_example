@@ -8,5 +8,5 @@
 
 // main module info
 angular.module('applet', [])
-  .directive('applet', require('./directives/applet'));
+  .directive('applet', require('./directives/applet'))
   .directive('myTodo', require('./directives/my_todo'));

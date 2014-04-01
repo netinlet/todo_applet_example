@@ -5,4 +5,8 @@ module.exports = function($scope) {
 
   $scope.todoList = [];
 
+  $scope.addTodo = function(todo_item) {
+    this.todoList.push(todo_item);
+  };
+
 };
