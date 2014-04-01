@@ -19,5 +19,22 @@ describe('myTodo', function() {
     expect(scope.todoList).to.contain('coffee');
   });
 
+  it('adds an item to the todo on submit', function() {
+    var scope = {};
+    myTodo(scope);
+    scope.newTodo = 'test';
+    scope.submit();
+    expect(scope.todoList).to.contain('test');
+  });
+
+  it('clears the newTodo when submitting a new todo', function() {
+    var scope = {};
+    myTodo(scope);
+    scope.newTodo = 'test';
+    scope.submit();
+    expect(scope.newTodo).to.equal('');
+  });
+
+
 });
 

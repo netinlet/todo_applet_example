@@ -9,8 +9,10 @@
 
 // main module info
 angular.module('applet', [])
-  .directive('applet', require('./directives/applet'))
-  .directive('myTodo', require('./directives/my_todo'));
+  .directive('applet', require('./directives/applet'));
+
+angular.module('mytodo', [])
+  .directive('mytodo', require('./directives/my_todo'));
 
 },{"./directives/applet":4,"./directives/my_todo":5}],2:[function(require,module,exports){
 // # Applet Controller
@@ -27,10 +29,18 @@ module.exports = function($scope) {
 module.exports = function($scope) {
   'use strict';
 
-  $scope.todoList = [];
+  $scope.newTodo = '';
+  $scope.todoList = ['walk dog', 'go to work'];
 
   $scope.addTodo = function(todo_item) {
     this.todoList.push(todo_item);
+  };
+
+  $scope.submit = function() {
+    if($scope.newTodo) {
+      $scope.addTodo($scope.newTodo);
+      $scope.newTodo = '';
+    }
   };
 
 };
@@ -77,7 +87,7 @@ module.exports = function(/* dependency injection */) {
     // isolated scope?
     scope: {},
     // template
-    template: "<div class=\"jumbotron\">\n  <h1>{{foo}}</h1>\n  <input ng-model=\"foo\">\n</div>\n",
+    template: "<div class=\"jumbotron\">\n  <form role=\"form\" ng-submit=\"submit()\">\n    <label for='todo_task'>Enter a Todo Task</label>\n    <input name=\"todo_task\" ng_model=\"newTodo\">\n  </form>\n\n  <ul>\n    <li ng-repeat=\"todo in todoList\">\n    {{todo}}\n    </li>\n  </ul>\n\n</div>\n",
     // controller
     controller: require('../controllers/my_todo.js')
   }

@@ -5,13 +5,13 @@
 <div ng-app="app">
   <div class="container" ng-controller="AppCtrl">
     <!-- setup my directive here -->
-    <applet></applet>
+    <mytodo></mytodo>
   </div>
 </div>
 <script src="js/angular.js"></script>
 <script src="bundle.js"></script>
 <script>
-angular.module('app', ['applet', 'myTodo'])
+angular.module('app', ['mytodo'] )
   .controller('AppCtrl', function($scope) {
 
   });

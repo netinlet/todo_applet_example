@@ -1,4 +1,13 @@
 <div class="jumbotron">
-  <h1>{{foo}}</h1>
-  <input ng-model="foo">
+  <form role="form" ng-submit="submit()">
+    <label for='todo_task'>Enter a Todo Task</label>
+    <input name="todo_task" ng_model="newTodo">
+  </form>
+
+  <ul>
+    <li ng-repeat="todo in todoList">
+    {{todo}}
+    </li>
+  </ul>
+
 </div>
