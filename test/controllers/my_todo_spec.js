@@ -4,13 +4,12 @@ var myTodo = require('../../app/controllers/my_todo');
 
 describe('myTodo', function() {
 
-  beforeEach(function(){
-    var localStorageService = function($provide) {
-      $provide.factory('localStorageService', function(){
-
+  beforeEach(function() {
+    angular.mock.module('mytodo', function($provide) {
+      $provide.value('LocalStorageModule', function() {
       });
-    }
-  });
+    });
+  }
 
   it('has a todoList', function() {
     var scope = {};
