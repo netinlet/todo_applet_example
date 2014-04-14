@@ -18,6 +18,7 @@
     "angular": "cp node_modules/angular/angular.js public/js/angular.js",
     "fonts": "cp -R node_modules/bootstrap/dist/fonts public/.",
     "watch": "watchify -t brfs app/app.js -o public/bundle.js",
-    "test": "mocha -u bdd test/**/*.js"
+    "test": "mocha -u bdd test/**/*.js",
+    "debug": "mocha -u bdd debug test/**/*.js"
   }
 }
