@@ -1,0 +1,5 @@
+---
+applications:
+  - name: todo_applet_example
+    command: "w3 --directory public --pushstate"
+    memory: 128M
